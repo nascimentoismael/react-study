@@ -1,4 +1,29 @@
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 const ListaAlunos = () => {
+
+  const [estado, setEstado] = useState(
+    {
+      carregado: false,
+      dados: []
+    }
+  );
+
+  const atualizar = () => {
+    if(estado.carregado){
+      return;
+    }
+
+    axios.get('http://localhost:3004/aluno')
+    .then(resp => {
+      setEstado({carregado: true, dados: resp.data})
+    }).catch(erro => {
+      console.log(erro)
+    })
+  }
+
   return (
     <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
@@ -39,25 +64,31 @@ const ListaAlunos = () => {
                 </tr>
               </thead>
               <tbody class="bg-white">
-                  <tr>
-                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                      Zé
-                    </td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      1111-1111
-                    </td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      ze@mail.com
-                    </td>
-                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                        <i class="fa-solid fa-user-pen"></i>
-                      </a>
-                      <a href="#" class="ml-2.5 text-indigo-600 hover:text-red-600">
-                        <i class="fa-solid fa-trash"></i>
-                      </a>
-                    </td>
-                  </tr>
+                  {
+                    estado.dados.map( x =>
+                      (
+                        <tr key={x.id}>
+                          <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                            {x.name}
+                          </td>
+                          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {x.phone}
+                          </td>
+                          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {x.email}
+                          </td>
+                          <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                              <i class="fa-solid fa-user-pen"></i>
+                            </a>
+                            <a href="#" class="ml-2.5 text-indigo-600 hover:text-red-600">
+                              <i class="fa-solid fa-trash"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      )
+                    )
+                  }
               </tbody>
             </table>
           </div>

@@ -1,0 +1,50 @@
+{
+  "aluno": [
+    {
+      "id": 1,
+      "name": "Zé",
+      "phone": "1111-1111",
+      "email": "ze@mail.com"
+    },
+    {
+      "id": 2,
+      "name": "Maria",
+      "phone": "2222-2222",
+      "email": "maria@mail.com"
+    }
+  ],
+  "practiceFile": [
+    {
+      "id": 1,
+      "id-aluno": 1,
+      "id-exercises": [1,2,3]
+    },
+    {
+      "id": 2,
+      "id-aluno": 2,
+      "id-exercises": [1,2,3]
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "body-group": "peito",
+      "description": "flexão"
+    },
+    {
+      "id": 2,
+      "body-group": "ombro",
+      "description": "elevacao lateral"
+    },
+    {
+      "id": 3,
+      "body-group": "perna",
+      "description": "agachamento"
+    },
+    {
+      "id": 4,
+      "body-group": "abdomem",
+      "description": "abdominal"
+    }
+  ]
+}
