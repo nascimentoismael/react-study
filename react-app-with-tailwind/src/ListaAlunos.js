@@ -29,7 +29,7 @@ const ListaAlunos = () => {
     //   return;
     // }
 
-    axios.get('http://localhost:3000/aluno')
+    axios.get('http://localhost:3004/aluno')
     .then(resp => {
       setEstado({carregado: true, dados: resp.data})
     }).catch(erro => {
@@ -39,22 +39,22 @@ const ListaAlunos = () => {
 
   const salvar=()=>{
     if(aluno.id!==0){
-      axios.put(`http://localhost:3000/aluno/${aluno.id}`,aluno).catch((erro)=>console.log(erro))  
+      axios.put(`http://localhost:3004/aluno/${aluno.id}`,aluno).catch((erro)=>console.log(erro))
     }else{
-      axios.post('http://localhost:3000/aluno',aluno).catch((erro)=>console.log(erro))
+      axios.post('http://localhost:3004/aluno',aluno).catch((erro)=>console.log(erro))
     }
   }
 
   const excluir=(e)=>{
     const id = parseInt(e.target.id);
-    axios.delete(`http://localhost:3000/aluno/${id}`)
+    axios.delete(`http://localhost:3004/aluno/${id}`)
     .then(()=>atualizar())
     .catch((erro)=>console.log(erro))
   }
 
   const editar=(e)=>{
     const id = parseInt(e.target.id);
-    axios.get(`http://localhost:3000/aluno/${id}`)
+    axios.get(`http://localhost:3004/aluno/${id}`)
     .then((aluno)=>{
       setAluno(aluno.data);
       setShow(true);
@@ -74,8 +74,7 @@ const ListaAlunos = () => {
       <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
         <button onClick={()=>setShow(!show)}
           type="button"
-          class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
-        >
+          class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
           Novo Aluno
         </button>
       </div>
@@ -123,9 +122,9 @@ const ListaAlunos = () => {
                               <i  id={x.id} onClick={editar} class="fa-solid fa-user-pen"></i>
                             </a>
                             <button class="ml-2.5 text-indigo-600 hover:text-red-600">
-                            
+
                               <i  id={x.id} onClick={excluir}  class="fa-solid fa-trash"></i>
-                            
+
                             </button>
                           </td>
                         </tr>
@@ -134,7 +133,7 @@ const ListaAlunos = () => {
                   }
               </tbody>
             </table>
-            
+
             {
               show && (<form style={{position: "relative", right: "60vh"}}>
                 <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
@@ -156,7 +155,6 @@ const ListaAlunos = () => {
               </form>)
             }
           </div>
-          {/* E.prevent reload */}
         </div>
       </div>
     </div>

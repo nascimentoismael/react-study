@@ -5,7 +5,7 @@ import ListaAlunos from './ListaAlunos';
 import Layout from './Layout';
 import Home from './Home';
 import NotFound from './NotFound';
-import EditarAluno from './EditarAluno';
+import ListaExercicios from './ListaExercicios';
 
 const App = () => {
   return(
@@ -15,7 +15,7 @@ const App = () => {
         <Route path='*' element={<NotFound />} />
         <Route index element={<Home />}></Route>
         <Route path='ListaAlunos' element={<ListaAlunos />}></Route>
-        <Route path='ListaAlunos/edit/:id' exact element={<EditarAluno />}></Route>
+        <Route path='ListaExercicios' element={<ListaExercicios />}></Route>
       </Routes>
     </BrowserRouter>
   );

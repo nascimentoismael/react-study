@@ -1,6 +1,9 @@
 {
   "devDependencies": {
     "autoprefixer": "^10.4.11",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react-hooks": "^5.0.0-next-d1bb1c586-20220922",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   },
