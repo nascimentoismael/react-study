@@ -1,12 +1,6 @@
 {
   "aluno": [
     {
-      "id": 1,
-      "name": "Zé",
-      "phone": "1111-1111",
-      "email": "ze@mail.com"
-    },
-    {
       "id": 2,
       "name": "Maria",
       "phone": "2222-2222",
@@ -14,8 +8,8 @@
     },
     {
       "id": 3,
-      "name": "Joao Marcos",
-      "email": "joao@mail.com",
+      "name": "Joao Marcos Silva",
+      "email": "joao_silva@mail.com",
       "phone": "3333-3333"
     }
   ],
